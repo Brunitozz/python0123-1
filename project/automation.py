@@ -1,6 +1,7 @@
 import pandas as pd
 import os
 import db
+import requests
 def insertData():
     #obtiene la ruta absoluta
     path_=os.getcwd()+'\dataTienda.csv'
@@ -15,6 +16,11 @@ def insertData():
 
 def updateDolar():
     url = 'https://api.apis.net.pe/v1/tipo-cambio-sunat' #tipo cambio sunat
+    respons=requests.get(url)
+    data = respons.json()
+    compra_dolar=data['compra']
+    venta_dolar=data['venta']
+    print(f'la venta del dolar es {compra_dolar} y la venta es {venta_dolar}')
     pass
 
 message="""
@@ -22,14 +28,17 @@ message="""
     2)Actualizar data del dolar
 """
 print(message)
-a=int(input('ingrese la tarea a realizar: '))
-while True:       
-    if a==1:
-        insertData()
-        break
-    elif a==2:
-        updateDolar()
-        break        
-    else:
-        print('ingrese un valor correcto')
-    
+
+while True:
+    try:
+        a=int(input('ingrese la tarea a realizar: '))
+        if a==1:
+            insertData()
+            break
+        elif a==2:
+            updateDolar()
+            break        
+        else:
+            None
+    except:
+        print('ERROR EN LA EJECUCIÓN')
