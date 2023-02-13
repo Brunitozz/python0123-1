@@ -12,7 +12,7 @@ def insertData():
     df = pd. read_csv (path_, sep = ";") 
     ### logica para insertar 
     for i,fila in df.iterrows():
-        print(fila['ORDER_ID'])
+        print(fila['ORDER_ID'],fila['PRICE_TOTAL'],fila['PRODUCT_ID'],fila['NAME'],fila['NROSERIE'],fila['CANTIDAD'],fila['PRODUCT'],fila['PRICE_UNIT'],fila['CATEGORIA'],fila['STOCK_ACUTAL'],fila['DATE'],fila['USER_ADMIN'],fila['USER_CLIENT'])
 
 def updateDolar():
     url = 'https://api.apis.net.pe/v1/tipo-cambio-sunat' #tipo cambio sunat
@@ -40,5 +40,5 @@ while True:
             break        
         else:
             None
-    except:
-        print('ERROR EN LA EJECUCIÓN')
+    except Exception as m:
+        print('ERROR EN LA EJECUCIÓN', m)
