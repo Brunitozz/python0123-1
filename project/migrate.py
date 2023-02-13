@@ -43,6 +43,17 @@ table=""" CREATE TABLE INVENTARIO (
         ); """
 cursor_obj.execute(table)
 
+cursor_obj.execute("DROP TABLE IF EXISTS CARRITO")
+table = """ CREATE TABLE CARRITO (
+            ID INT PRIMARY KEY AUTO_INCREMENT,
+            NOMBRE_PRODUCTO VARCHAR(255) NOT NULL,
+            CANTIDAD INT NOT NULL,
+            PRICE VARCHAR(25) NOT NULL,
+            CORREO_CLIENTE VARCHAR (255) NOT NULL,
+            FECHA_ANADIDO TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        ); """
+cursor_obj.execute(table)
+
 # comentamos las insercciones ya que solo sera parte de la creacion de tablas
 """ insert =" INSERT INTO USUARIOS(USUARIO,PASSWORD,EMAIL,FULLNAME,SCORE,TIPOUSUARIO) VALUES('admin','admin','admin@datux.com','admin datux',0,'admin')"
 

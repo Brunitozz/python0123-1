@@ -13,6 +13,7 @@ def insertData():
     ### logica para insertar 
     for i,fila in df.iterrows():
         print(fila['ORDER_ID'],fila['PRICE_TOTAL'],fila['PRODUCT_ID'],fila['NAME'],fila['NROSERIE'],fila['CANTIDAD'],fila['PRODUCT'],fila['PRICE_UNIT'],fila['CATEGORIA'],fila['STOCK_ACUTAL'],fila['DATE'],fila['USER_ADMIN'],fila['USER_CLIENT'])
+        
 
 def updateDolar():
     url = 'https://api.apis.net.pe/v1/tipo-cambio-sunat' #tipo cambio sunat
