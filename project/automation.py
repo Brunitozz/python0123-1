@@ -1,14 +1,6 @@
 import pandas as pd
 import os
 import db
-message="""
-    1)Insertar data:
-    2)Actualizar data del dolar
-"""
-print(message)
-a=int(input('ingrese la tarea a realizar: '))
-
-
 def insertData():
     #obtiene la ruta absoluta
     path_=os.getcwd()+'\dataTienda.csv'
@@ -24,3 +16,20 @@ def insertData():
 def updateDolar():
     url = 'https://api.apis.net.pe/v1/tipo-cambio-sunat' #tipo cambio sunat
     pass
+
+message="""
+    1)Insertar data:
+    2)Actualizar data del dolar
+"""
+print(message)
+a=int(input('ingrese la tarea a realizar: '))
+while True:       
+    if a==1:
+        insertData()
+        break
+    elif a==2:
+        updateDolar()
+        break        
+    else:
+        print('ingrese un valor correcto')
+    
